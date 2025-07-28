@@ -1,0 +1,240 @@
+/* ========== General Reset & Defaults ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Might revisit this to allow selective paddings later */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6; /* feels readable */
+}
+
+/* ===== Navbar Section ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  /* maybe add box-shadow later? */
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  /* maybe use a variable here if switching themes later */
+}
+
+.nav-links a:hover {
+  color: #0077cc; /* nice subtle blue */
+}
+
+/* ===== Content Wrapper ===== */
+.section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem; /* consistent padding */
+}
+
+/* ===== Hero Block ===== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.profile-img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* soft round shadow */
+}
+
+/* ===== F1 Passion Area ===== */
+.f1-passion h2,
+.drivers h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.f1-passion h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 10px;
+  text-align: left; /* keeping subheaders left-aligned on wide view */
+}
+
+.passion-block {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.passion-block p {
+  margin-bottom: 1rem; /* gives it some breathing room */
+}
+
+/* This one feels like it needs extra spacing up top */
+.f1-passion h3 + h3 {
+  margin-top: 2rem;
+}
+
+/* ===== Racing Games List ===== */
+.game-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+}
+
+.game-list li {
+  background: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.game-list li:hover {
+  transform: scale(1.05); /* makes it pop a bit */
+}
+
+.game-list a {
+  color: inherit;
+  text-decoration: none;
+  display: block; /* so the whole thing is clickable */
+}
+
+.game-list img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: block;
+  /* object-fit removed — it was causing issues with some images */
+}
+
+.game-list p {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+/* ===== F1 Driver Cards ===== */
+.driver-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* always 3 columns unless mobile */
+  gap: 20px;
+}
+
+.driver-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.driver-card:hover {
+  transform: scale(1.05);
+}
+
+.driver-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.driver-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #222;
+  flex-shrink: 0;
+}
+
+.driver-card .team {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0077cc;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.driver-card p:last-child {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* ===== Mobile Tweaks ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    margin: 0 0.5rem; /* little less spacing on smaller view */
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-bottom: 2rem;
+  }
+
+  .profile-img {
+    margin: 0 auto; /* center it up */
+  }
+
+  .f1-passion h3 {
+    text-align: center;
+  }
+
+  .passion-block {
+    text-align: center;
+  }
+
+  .game-list,
+  .driver-cards {
+    grid-template-columns: 1fr;
+  }
+}
